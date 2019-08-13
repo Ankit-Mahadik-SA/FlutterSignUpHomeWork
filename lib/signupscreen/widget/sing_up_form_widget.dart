@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_homework/style/common_styles.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SignUpFormWidget extends StatefulWidget {
   @override
@@ -131,29 +132,32 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
   Widget _buildTermsWidget(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20.0),
-      child: RichText(
-        text: new TextSpan(
-          style: new TextStyle(
-            fontSize: 14.0,
-            color: Colors.black,
+      child: GestureDetector(
+        onTap: (){_openTermsInWeb();},
+        child: RichText(
+          text: new TextSpan(
+            style: new TextStyle(
+              fontSize: 14.0,
+              color: Colors.black,
+            ),
+            children: <TextSpan>[
+              TextSpan(
+                text: 'Terms of use',
+                style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
+              ),
+              TextSpan(
+                text: ' and ',
+                style: TextStyle(
+                    color: Colors.black54, fontWeight: FontWeight.w500),
+              ),
+              TextSpan(
+                text: 'Privacy policy',
+                style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
+              ),
+            ],
           ),
-          children: <TextSpan>[
-            TextSpan(
-              text: 'Terms of use',
-              style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
-            ),
-            TextSpan(
-              text: ' and ',
-              style:
-                  TextStyle(color: Colors.black54, fontWeight: FontWeight.w500),
-            ),
-            TextSpan(
-              text: 'Privacy policy',
-              style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
-            ),
-          ],
         ),
       ),
     );
@@ -208,5 +212,14 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
       _userEmailController = TextEditingController(text: "");
       _userPasswordController = TextEditingController(text: "");
     });
+  }
+
+  _openTermsInWeb( ) async {
+    const url = 'https://www.solutionanalysts.com/terms-use/';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
