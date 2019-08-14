@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_homework/signupscreen/widget/sing_up_form_widget.dart';
-import 'package:flutter_app_homework/signupscreen/widget/social_login_widget.dart';
+import 'package:flutter_app_homework/signup/widget/sing_up_form_widget.dart';
+import 'package:flutter_app_homework/signup/widget/social_login_widget.dart';
 
 class SignUpScreen extends StatefulWidget {
   @override

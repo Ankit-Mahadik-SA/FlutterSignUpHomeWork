@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_homework/signupscreen/screen/sign_up_screen.dart';
+import 'package:flutter_app_homework/signup/screen/sign_up_screen.dart';
+
+import 'notelist/screen/note_list_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: SignUpScreen(),
+      home: NoteListScreen(),
     );
   }
 }
